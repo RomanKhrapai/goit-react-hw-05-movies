@@ -1,6 +1,10 @@
 import { fetchMovieCredits } from 'services/api';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { CastomList } from './CastomList.styles';
+import { Image } from './Image.styles';
+import { Item } from './Item.styles';
+import noFoto from '../../images/noFoto.png';
 
 export default function Cast() {
   const [data, setData] = useState(null);
@@ -25,19 +29,23 @@ export default function Cast() {
     <>
       {error && <h2>{error}</h2>}
       {data && (
-        <ul>
+        <CastomList>
           {data.map(({ character, name, profile_path, id }) => (
-            <li key={id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+            <Item key={id}>
+              <Image
+                src={
+                  !profile_path
+                    ? noFoto
+                    : `https://image.tmdb.org/t/p/w500/${profile_path}`
+                }
                 width="50px"
                 alt={name}
               />
               <p>{name}</p>
               <p>Character: {character}</p>
-            </li>
+            </Item>
           ))}
-        </ul>
+        </CastomList>
       )}
     </>
   );

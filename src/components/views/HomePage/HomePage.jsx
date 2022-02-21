@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { fetchTrendingMovie } from 'services/api';
 
 import List from 'components/List';
+import { Title } from './Title.styles';
 
 export default function HomePage() {
   const [data, setData] = useState(null);
@@ -32,7 +33,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1> Trending today</h1>
+      <Title> Trending today</Title>
       {data && <List data={data} />}
       {error && <h2>{error}</h2>}
     </>

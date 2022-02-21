@@ -10,4 +10,5 @@ export const Label = styled.span`
   white-space: nowrap;
   clip-path: inset(50%);
   border: 0;
+  
 `;

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { DetailsBox } from './DetailsBox.styles';
 import { ParamsBox } from './ParamsBox.styles';
+import { Image } from './Image.styles';
+import noFoto from '../../images/noFoto.png';
 
 MovieDetails.propTypes = {
   data: PropTypes.shape({
@@ -31,9 +33,12 @@ export default function MovieDetails({ data }) {
   return (
     <DetailsBox>
       <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          width="200px"
+        <Image
+          src={
+            !poster_path
+              ? noFoto
+              : `https://image.tmdb.org/t/p/w500/${poster_path}`
+          }
           alt={title}
         />
       </div>

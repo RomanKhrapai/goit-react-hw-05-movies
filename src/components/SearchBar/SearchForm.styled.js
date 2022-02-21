@@ -9,6 +9,7 @@ export const SearchForm = styled.form`
   border-radius: 3px;
   overflow: hidden;
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid;
 `;

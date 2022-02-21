@@ -7,6 +7,7 @@ List.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       original_title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string,
     })
   ),
 };
@@ -14,8 +15,8 @@ List.propTypes = {
 export default function List({ data }) {
   return (
     <CastomList>
-      {data.map(({ id, original_title }) => (
-        <Item key={id} id={id} value={original_title} />
+      {data.map(({ id, original_title, poster_path }) => (
+        <Item key={id} id={id} value={original_title} imageUrl={poster_path} />
       ))}
     </CastomList>
   );

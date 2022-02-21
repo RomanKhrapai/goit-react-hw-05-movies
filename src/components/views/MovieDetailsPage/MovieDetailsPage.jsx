@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import MovieDetails from 'components/MovieDetails';
 import { Button } from './Button.styles';
 import { Layout } from './Layout.styles';
+import { BoxInfo } from './BoxInfo.styles';
+import { TitleInfo } from './TitleInfo.styles';
+import { LinkInfo } from './LinkInfo.styles';
 
 MovieDetailsPage.propTypes = {
   children: PropTypes.element,
@@ -45,27 +48,22 @@ export default function MovieDetailsPage({ children }) {
 
       {error && <h2>{error}</h2>}
       {data && <MovieDetails data={data} />}
-      <div>
-        <p>Additional information</p>
-        <ul>
-          <li>
-            <a
-              href={`/movies/${postId}/cast`}
-              onClick={e => onOpenInfo(e, 'cast')}
-            >
-              Cast
-            </a>
-          </li>
-          <li>
-            <a
-              href={`/movies/${postId}/reviews`}
-              onClick={e => onOpenInfo(e, 'reviews')}
-            >
-              Reviews
-            </a>
-          </li>
-        </ul>
-      </div>
+      <BoxInfo>
+        <TitleInfo>Additional information</TitleInfo>
+        <LinkInfo
+          href={`/movies/${postId}/cast`}
+          onClick={e => onOpenInfo(e, 'cast')}
+        >
+          Cast
+        </LinkInfo>
+
+        <LinkInfo
+          href={`/movies/${postId}/reviews`}
+          onClick={e => onOpenInfo(e, 'reviews')}
+        >
+          Reviews
+        </LinkInfo>
+      </BoxInfo>
       {children}
     </Layout>
   );
